@@ -19,13 +19,14 @@ return {
     config = function()
       require("neogen").setup({snippet_engine = "luasnip"})
     end,
-    -- Uncomment next line if you want to follow only stable versions
     version = "*"
   },
   {
-    "f-person/git-blame.nvim"
-    -- vim.g.gitblame_message_template = ' <author> - <date> - <summary> - <sha>'
-    -- vim.g.gitblame_enabled = 0
+    "f-person/git-blame.nvim",
+    init = function()
+      vim.g.gitblame_message_template = ' <author> - <date> - <summary> - <sha>'
+      vim.g.gitblame_enabled = 0
+    end,
   },
   {
     "RaafatTurki/hex.nvim",
