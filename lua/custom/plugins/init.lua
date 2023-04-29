@@ -35,12 +35,6 @@ return {
     end,
   },
   {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup {}
-    end,
-  },
-  {
     "xiyaowong/telescope-emoji.nvim",
     config = function()
       require('telescope').setup {
