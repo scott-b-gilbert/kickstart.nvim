@@ -20,6 +20,8 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mfussenegger/nvim-dap-python',
+    'simrat39/rust-tools.nvim'
   },
   config = function()
     local dap = require 'dap'
@@ -38,16 +40,21 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        'delve',
+        -- 'delve',
+        'debugpy',
+        'codelldb',
       },
     }
 
     -- Basic debugging keymaps, feel free to change to your liking!
-    vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
-    vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-    vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-    vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
-    vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
+    vim.keymap.set('n', '<F5>', dap.continue)
+    vim.keymap.set('n', '<F1>', dap.step_into)
+    vim.keymap.set('n', '<F2>', dap.step_over)
+    vim.keymap.set('n', '<F3>', dap.step_out)
+    vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint)
+    vim.keymap.set('n', '<leader>dpr', function()
+      require('dap-python').test_method()
+    end)
     vim.keymap.set('n', '<leader>B', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Debug: Set Breakpoint' })
@@ -69,7 +76,7 @@ return {
           step_back = 'b',
           run_last = '▶▶',
           terminate = '⏹',
-          disconnect = '⏏',
+          disconnect = "⏏",
         },
       },
     }
