@@ -20,7 +20,7 @@ vim.g.swap = true
 -- vim.o.expandtab = true
 
 -- escape from terminal mode 
-vim.keymap.set({ 't' }, '<leader><leader><esc>', '<C-\\><C-N>', {silent = true})
+vim.keymap.set({ 't' }, '<leader><esc>', '<C-\\><C-N>', {silent = true})
 
 -- jj/jk for insert to normal mode 
 vim.keymap.set({ 'i' }, 'jk', '<ESC>', {silent = true})
