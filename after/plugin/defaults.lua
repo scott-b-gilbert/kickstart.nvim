@@ -78,3 +78,6 @@ vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})
 
 -- insert blank line below ignoring any comments
 vim.keymap.set({'n'}, "<leader>o", "o<esc><S-v>s", {silent = true})
+
+-- show full path 
+vim.keymap.set({'n'}, "<leader>sp", "1<C-g>", {silent = true})
