@@ -81,3 +81,8 @@ vim.keymap.set({'n'}, "<leader>o", "o<esc><S-v>s", {silent = true})
 
 -- show full path 
 vim.keymap.set({'n'}, "<leader>sp", "1<C-g>", {silent = true})
+
+-- fix python2 print statements that don't have parentheses
+-- Note that this is using the lua literal string for the regular expression ``[[content]]``
+-- See here http://lua-users.org/wiki/StringsTutorial
+vim.keymap.set({'n'}, "<leader>fp", [[:%s/print\(.*)\)/print(\1)/g<cr>:Format<cr>]], {})
